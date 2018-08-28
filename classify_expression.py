@@ -62,7 +62,7 @@ if __name__ == '__main__':
     args = arg_parser.parse_args()
 
     image_paths = glob.glob(args.in_dir + '/*.jpg')
-    print(f'Number of images in dir {args.in_dir} is {len(image_paths)}')
+    print('Number of images in dir {} is {}'.format(args.in_dir, len(image_paths)))
     images_with_smile, images_with_mouth_open = classify_expressions(
         image_paths, args.facial_landmark_detection_model_path, args.expression_classifier_model_prefix)
 

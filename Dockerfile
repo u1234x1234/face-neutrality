@@ -13,5 +13,18 @@ WORKDIR /work/
 RUN aria2c -x8 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
 RUN bzip2 -dk shape_predictor_68_face_landmarks.dat.bz2
 
-
+COPY requirements.txt ./
+RUN apt-get install -y cmake
 RUN pip3 install --requirement requirements.txt
+
+RUN apt-get install -y \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6
+
+COPY labels_selfie.csv ./
+COPY labels_test.csv ./
+COPY expression_classifier-0000.params ./
+COPY expression_classifier-symbol.json ./
+COPY ./*.py ./
