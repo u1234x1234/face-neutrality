@@ -1,0 +1,4 @@
+dlib==19.15
+imgaug==0.2.6
+mxnet==1.3
+opencv-python==3.4.2.17
